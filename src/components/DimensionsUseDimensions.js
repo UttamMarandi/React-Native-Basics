@@ -7,12 +7,13 @@ import {useDimensions,useDeviceOrientation} from "@react-native-community/hooks"
 
 export default function App() {
   console.log(Dimensions.get("screen"));
-  //Dimensions.get returns the height,width ,scale and fontScale of the either screen or window. screen represents the entire screen and window returns the size of application window.
+  //Dimensions.get returns the height,width ,scale and fontScale of the either screen or window. screen represents the entire screen and window represens the size of application window.
   //screen and window size equal in iphones but window is bit smaller than screen in android
   //Dimension module do not respond to orientation changes
 
   console.log("useDimensions",useDimensions());
   //returns the dimension (height,width,scalefactor) 
+  //it can detect orientation changes and change height and width accordingly
   
   console.log("useDevice orientation",useDeviceOrientation());//returns landscape or portrait
 //  returns true,false for landscape and portrait depending on the orientation

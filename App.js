@@ -1,58 +1,58 @@
-//Dimesions component
+//Flexbox component
 
-// import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button, Alert, Platform, StatusBar,Dimensions } from 'react-native';
 import {useDimensions,useDeviceOrientation} from "@react-native-community/hooks" 
 
 export default function App() {
-  console.log(Dimensions.get("screen"));
-  //Dimensions.get returns the height,width ,scale and fontScale of the either screen or window. screen represents the entire screen and window returns the size of application window.
-  //screen and window size equal in iphones but window is bit smaller than screen in android
-  //Dimension module do not respond to orientation changes
-
-  console.log("useDimensions",useDimensions());
-  //returns the dimension (height,width,scalefactor) 
   
-  console.log("useDevice orientation",useDeviceOrientation());//returns landscape or portrait
-//  returns true,false for landscape and portrait depending on the orientation
-  // {
-//   "landscape": false,
-//   "portrait": true,
-// }
 
   const {landscape} = useDeviceOrientation();
   
   return (
-    <SafeAreaView style={styles.container}>
-      {/* style can also take an array , right side object takes more priority */}
-      <View style={{
-        backgroundColor:"pink",
-        width: "100%",
-        height: landscape ? "100%" : "30%"
-      }}>
+    <View style={{backgroundColor:"#fff",flex:1,flexDirection:"row",justifyContent:"center", flexWrap:"wrap",alignItems:"center",}}>
+      {/* <View style={{backgroundColor:"dodgerblue",flex:2}}/>
+      <View style={{backgroundColor:"green",flex:1}}/>
+      <View style={{backgroundColor:"red",flex:1}}/> */}
 
-      </View>
+      <View style={{backgroundColor:"dodgerblue",width:100,height:300}}/>
+      <View style={{backgroundColor:"green",width:100,height:100}}/>
+      <View style={{backgroundColor:"red",width:100,height:100}}/>
+      <View style={{backgroundColor:"grey",width:100,height:100}}/>
+      <View style={{backgroundColor:"tomato",width:100,height:100}}/>
 
-    </SafeAreaView>
+    </View>
   );
 }
-const containerStyle = {backgroundColor:"pink"}
+// Flexbox in react native by default coloumn aligned
+//flex direction property is used  to change default alignment : row,coloumn,row-reverse,coloumn-reverse
+//flex direction value is the primary axis , opposite axis is the secondry / cross axis
+//justifuContent : to align in primary axis
+//alignItem: to align in secondry axis
+//stretch is default property for alignItems and justifyContent
+//alignSelf property is used to align individual flex items
+
+//default behavior for more items than than the view
+//elements at end get shrunk ..we can use flex wrap to wrap the items
+
+//When flexwrap property is true , then alignItems property / secondry axis alignment property aligns the items based on individuak line formed by wrap rathen than the container
+
+//to set alignment of the the whole view/flex parent we use alignContent property. 
+//so alignContent property in a sense gets activated when flex wrap property is defined
+
+// flexbasis, flexgrow , flexshrink
+//flexbasis allows to set the size of item along the primary axis
+//flexgrow is same to flex property
+//flexshrik is opposite of flex grow property
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    
   },
   padding:{
     margin: 10,
   }
 });
-// Stylesheet api helps us create css for our UI. 
-//Reason to use Stylesheet : validation : provides error if we misspell css
-//optimization
-
-//In mobile devies
-//Pixels : dip * scale factor = pixels
