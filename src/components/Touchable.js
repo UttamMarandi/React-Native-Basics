@@ -63,7 +63,7 @@ export default function App() {
     </SafeAreaView>
     //View is like a div in react native
     //SafeAreaView also takes notches/teardrops into consideration. so applies padding automatically
-    //SafeAreaView is not availaible in chrome
+    //SafeAreaView is not availaible in android
     //Text is like the p tag of html
     //numberOfLines depicts how many lines are allowed for this Text component
     //onPress allows to run a function when the Text is clicked
