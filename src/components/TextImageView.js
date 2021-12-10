@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
 //2.expo init ProjectName
 
 //To reload android emulator : Ctrl + R
-//For settings: Ctrl + Ms
+//For settings: Ctrl + M

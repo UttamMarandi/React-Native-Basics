@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     paddingTop:Platform.OS === "android" ? 20:0,
     // Platform module helps us impement platform specific styles. It has many props like OS, isTV , isIpad
     paddingTop:Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    //StatusBar.currentHeight return the height of the statusbar. StatusBar used is a react-natiove component and not a "expo-status-bar" component
+    //StatusBar.currentHeight return the height of the statusbar. StatusBar used here is a react-natiove component and not a "expo-status-bar" component
     
 
   },
