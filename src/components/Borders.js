@@ -1,4 +1,4 @@
-// Text Styles
+// Borders
 
 
 import React from 'react';
@@ -10,14 +10,16 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Text style={{
-        fontSize:30,
-        fontFamily:Platform.OS ==="android" ? "Roboto":"Courier",
-        fontStyle:"italic",
-        fontWeight:"100",
-        textAlign:"center",
-        lineHeight:60,
-      }}>I love React Native! This is the simplest way to build apps</Text>
+      <View style={{
+      backgroundColor:"dodgerblue",
+      borderColor:"royalblue",
+      borderWidth:8,
+      height: 100,
+      width: 100,
+      borderRadius:50
+      }}>
+      
+    </View>
     </View>
   );
 }
@@ -34,5 +36,3 @@ const styles = StyleSheet.create({
     margin: 10,
   }
 });
-
-//We don't have css inheritence in apps. Meaning style defined in top leve will not get implemented in bottom level.

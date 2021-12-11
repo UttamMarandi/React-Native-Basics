@@ -14,16 +14,17 @@ const AppButton = ({title,onPress}) => {
 const styles = StyleSheet.create({
     button:{
         backgroundColor:colors.primary,
-        justifyContent:"center",
+        justifyContent:"center", 
         alignItems:"center",
         borderRadius:25,
         padding:15,
         width:"100%",
+        // cursor is not a css rule in react native
         
     },
     text:{
         color: colors.secondary,
-        fontWeight:'bold',
+        fontWeight:'300',
         fontSize:18,
         textTransform:'uppercase'
     }

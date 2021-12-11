@@ -1,4 +1,4 @@
-// Text Styles
+// Margin
 
 
 import React from 'react';
@@ -10,14 +10,26 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Text style={{
-        fontSize:30,
-        fontFamily:Platform.OS ==="android" ? "Roboto":"Courier",
-        fontStyle:"italic",
-        fontWeight:"100",
-        textAlign:"center",
-        lineHeight:60,
-      }}>I love React Native! This is the simplest way to build apps</Text>
+      <View style={{
+        backgroundColor:"dodgerblue",
+        height: 100,
+        width: 100,
+        padding: 20,//paddingHorizental , paddingVertical , paddingLeft, paddingRight
+        }}>
+          <View style={{width:50,height:50,backgroundColor:"gold"}}>
+
+          </View>
+      
+      </View>
+      <View style={{
+          width: 100,
+          height: 100,
+          backgroundColor:"tomato",
+          margin: 20 //marginHorizental, marginVertical, marginLeft, marginRight
+          }}>
+
+      </View>
+
     </View>
   );
 }
@@ -34,5 +46,3 @@ const styles = StyleSheet.create({
     margin: 10,
   }
 });
-
-//We don't have css inheritence in apps. Meaning style defined in top leve will not get implemented in bottom level.
