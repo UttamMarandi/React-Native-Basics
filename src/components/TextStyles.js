@@ -1,7 +1,6 @@
-// Icons
+// Text Styles
 
 import React from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   SafeAreaView,
   StyleSheet,
@@ -40,8 +39,7 @@ export default function App() {
       >
         I love React Native! This is the simplest way to build apps
       </Text>
-      <AppText>Encapsulating styles for text.</AppText>
-      <MaterialCommunityIcons name="email" size={60} color="red" />
+      <AppText>Encapsulating styles for text</AppText>
     </View>
   );
 }
