@@ -5,10 +5,12 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
+  View,
 } from "react-native";
 import ListItem from "../MainComponents/ListItem";
 import Constants from "expo-constants";
 import Screen from "../MainComponents/Screen";
+import ListItemSeparator from "../MainComponents/ListItemSeparator";
 // console.log("constants", Constants);
 //gives us information about the devices. one of them is statusBarHeight
 
@@ -44,6 +46,8 @@ const MessagesScreen = () => {
           // renderItem takes an item from data and renders it into the list.
           //takes three parameters item,index,separators.
         )}
+        ItemSeparatorComponent={() => <ListItemSeparator />}
+        //ItemSeparatorComponent is a component that is rendered in between each item, but not at the top or bottom
       />
     </Screen>
   );
