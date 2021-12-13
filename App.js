@@ -28,9 +28,10 @@ import styles from "./src/components/AppText/AppTextStyles";
 import WelcomeScreen from "./src/MainComponents/WelcomeScreen";
 import CardComponent from "./src/components/CardComponent";
 import ListingDetailsScreen from "./src/screens/ListingDetailsScreen";
+import MessagesScreen from "./src/screens/MessagesScreen";
 
 export default function App() {
-  return <ListingDetailsScreen />;
+  return <MessagesScreen />;
 }
 
 //We don't have css inheritence in apps. Meaning style defined in top leve will not get implemented in bottom level.
