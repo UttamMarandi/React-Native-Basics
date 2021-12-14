@@ -29,9 +29,20 @@ import WelcomeScreen from "./src/MainComponents/WelcomeScreen";
 import CardComponent from "./src/components/CardComponent";
 import ListingDetailsScreen from "./src/screens/ListingDetailsScreen";
 import MessagesScreen from "./src/screens/MessagesScreen";
+import Screen from "./src/MainComponents/Screen";
+import Icon from "./src/MainComponents/Icon";
+import ListItem from "./src/MainComponents/ListItem";
 
 export default function App() {
-  return <MessagesScreen />;
+  return (
+    <Screen>
+      <ListItem
+        title="Hello"
+        subtitle="It's me"
+        ImageComponent={<Icon name="email" />}
+      />
+    </Screen>
+  );
 }
 
 //We don't have css inheritence in apps. Meaning style defined in top leve will not get implemented in bottom level.

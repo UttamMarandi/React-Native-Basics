@@ -10,7 +10,14 @@ import AppText from "../components/AppText/AppText";
 import colors from "../config/colors";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-const ListItem = ({ title, subtitle, image, onPress, renderRightActions }) => {
+const ListItem = ({
+  title,
+  subtitle,
+  image,
+  onPress,
+  renderRightActions,
+  ImageComponent,
+}) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight
@@ -20,10 +27,13 @@ const ListItem = ({ title, subtitle, image, onPress, renderRightActions }) => {
         {/* in TouchableHighlight the selected item gets highlighted meaning it's background color changes */}
         <View>
           <View style={styles.container}>
-            <Image style={styles.image} source={image} />
+            {ImageComponent}
+            {image && <Image style={styles.image} source={image} />}
             <View style={styles.detailsContainer}>
               <AppText style={styles.title}>{title}</AppText>
-              <AppText style={styles.subtitle}>{subtitle}</AppText>
+              {subtitle && (
+                <AppText style={styles.subtitle}>{subtitle}</AppText>
+              )}
             </View>
           </View>
         </View>
@@ -44,6 +54,7 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     paddingLeft: 20,
+    justifyContent: "center",
   },
   title: {
     fontWeight: "bold",
