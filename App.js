@@ -32,15 +32,13 @@ import MessagesScreen from "./src/screens/MessagesScreen";
 import Screen from "./src/MainComponents/Screen";
 import Icon from "./src/MainComponents/Icon";
 import ListItem from "./src/MainComponents/ListItem";
+import ListingScreens from "./src/screens/ListingScreens";
+import AccountScreen from "./src/screens/AccountScreen";
 
 export default function App() {
   return (
     <Screen>
-      <ListItem
-        title="Hello"
-        subtitle="It's me"
-        ImageComponent={<Icon name="email" />}
-      />
+      <ListingScreens />
     </Screen>
   );
 }
