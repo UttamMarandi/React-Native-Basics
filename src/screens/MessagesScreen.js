@@ -32,10 +32,10 @@ const initialMessages = [
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
   const handleDelete = (message) => {
     //delete message from messages array
     //hooks cannot be used in class component
-    //call the server
     const newMessages = messages.filter((m) => m.id !== message.id);
     // return all m where message id not equal to to m.id
     setMessages(newMessages);
@@ -66,6 +66,17 @@ const MessagesScreen = () => {
         )}
         ItemSeparatorComponent={() => <ListItemSeparator />}
         //ItemSeparatorComponent is a component that is rendered in between each item, but not at the top or bottom
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 3,
+              title: "T3",
+              desciption: "D3",
+              image: require("../../assets/profile.jpg"),
+            },
+          ]);
+        }}
       />
     </Screen>
   );
