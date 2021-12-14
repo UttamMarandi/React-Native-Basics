@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   Platform,
@@ -15,7 +15,7 @@ import ListItemDelete from "../MainComponents/ListItemDelete";
 // console.log("constants", Constants);
 //gives us information about the devices. one of them is statusBarHeight
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     title: "T1",
@@ -31,6 +31,17 @@ const messages = [
 ];
 
 const MessagesScreen = () => {
+  const [messages, setMessages] = useState(initialMessages);
+  const handleDelete = (message) => {
+    //delete message from messages array
+    //hooks cannot be used in class component
+    //call the server
+    const newMessages = messages.filter((m) => m.id !== message.id);
+    // return all m where message id not equal to to m.id
+    setMessages(newMessages);
+    //this causes a re-render every time handleDelete is called. That's why we use useState hooks
+  };
+
   return (
     //   Flatlist provides performant interface for rendering basic, flat lists. basically , it is used to render lists from data. Instead of using map method we use flatlist.
     <Screen>
@@ -44,7 +55,11 @@ const MessagesScreen = () => {
             subtitle={item.desciption}
             image={item.image}
             onPress={() => console.log("message seledted")}
-            renderRightActions={ListItemDelete}
+            renderRightActions={() => (
+              <ListItemDelete onPress={() => handleDelete(item)} />
+            )}
+            //if we use a function than we pass a component to prop
+            //if we don't use a function then just passing the component name will do the work.
           />
           // renderItem takes an item from data and renders it into the list.
           //takes three parameters item,index,separators.
