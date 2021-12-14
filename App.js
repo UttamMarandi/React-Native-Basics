@@ -38,7 +38,7 @@ import AccountScreen from "./src/screens/AccountScreen";
 export default function App() {
   return (
     <Screen>
-      <ListingScreens />
+      <AccountScreen />
     </Screen>
   );
 }
