@@ -11,6 +11,7 @@ import ListItem from "../MainComponents/ListItem";
 import Constants from "expo-constants";
 import Screen from "../MainComponents/Screen";
 import ListItemSeparator from "../MainComponents/ListItemSeparator";
+import ListItemDelete from "../MainComponents/ListItemDelete";
 // console.log("constants", Constants);
 //gives us information about the devices. one of them is statusBarHeight
 
@@ -42,6 +43,8 @@ const MessagesScreen = () => {
             title={item.title}
             subtitle={item.desciption}
             image={item.image}
+            onPress={() => console.log("message seledted")}
+            renderRightActions={ListItemDelete}
           />
           // renderItem takes an item from data and renders it into the list.
           //takes three parameters item,index,separators.
