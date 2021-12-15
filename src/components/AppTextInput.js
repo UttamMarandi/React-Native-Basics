@@ -3,11 +3,15 @@ import React from "react";
 import { Platform, StyleSheet, TextInput, View } from "react-native";
 import colors from "../config/colors";
 import defaultStyles from "../config/styles";
-const AppTextInput = ({ icon, color, placeholder }) => {
+const AppTextInput = ({ icon, color, placeholder, ...otherProps }) => {
   return (
     <View style={styles.container}>
       {icon && <MaterialCommunityIcons name={icon} size={30} color={color} />}
-      <TextInput style={styles.textInput} placeholder={placeholder} />
+      <TextInput
+        style={styles.textInput}
+        placeholder={placeholder}
+        {...otherProps}
+      />
     </View>
   );
 };

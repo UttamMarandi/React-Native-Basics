@@ -40,6 +40,7 @@ import { borderBottomColor } from "react-native/Libraries/Components/View/ReactN
 import AppTextInput from "./src/components/AppTextInput";
 import SwitchComponent from "./src/components/SwitchComponent";
 import AppPicker from "./src/components/AppPicker";
+import LoginScreen from "./src/MainComponents/LoginScreen";
 
 const categories = [
   { label: "Furniture", value: 1 },
@@ -51,13 +52,7 @@ export default function App() {
   const [cartegory, setCategory] = useState();
   return (
     <Screen>
-      <AppPicker
-        selectedItem={cartegory}
-        onSelectItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      />
+      <LoginScreen />
     </Screen>
   );
 }
