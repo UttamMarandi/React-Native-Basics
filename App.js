@@ -1,6 +1,6 @@
 // Icons
 
-import React from "react";
+import React, { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   SafeAreaView,
@@ -17,6 +17,7 @@ import {
   Platform,
   StatusBar,
   Dimensions,
+  TextInput,
 } from "react-native";
 import {
   useDimensions,
@@ -34,11 +35,14 @@ import Icon from "./src/MainComponents/Icon";
 import ListItem from "./src/MainComponents/ListItem";
 import ListingScreens from "./src/screens/ListingScreens";
 import AccountScreen from "./src/screens/AccountScreen";
+import { borderBottomColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
+import AppTextInput from "./src/components/AppTextInput";
 
 export default function App() {
+  const [firstName, setFirstName] = useState("");
   return (
     <Screen>
-      <AccountScreen />
+      <AppTextInput icon="email" color="tomato" placeholder="UserName" />
     </Screen>
   );
 }
