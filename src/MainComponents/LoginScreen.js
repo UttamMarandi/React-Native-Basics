@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { Image, StyleSheet } from "react-native";
 import AppButton from "../components/AppButton";
 import AppTextInput from "../components/AppTextInput";
+import AppText from "../components/AppText/AppText";
 import { Formik } from "formik";
+import * as Yup from "yup";
 
 import Screen from "./Screen";
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email().required().label("Email"), //we require label b.c when we show errors we want to display "Email" and not email
+  password: Yup.string().required().min(6).label("Password"),
+});
 
 const LoginScreen = () => {
   //   const [email, setEmail] = useState();
@@ -16,8 +23,9 @@ const LoginScreen = () => {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
       >
-        {({ handleSubmit, handleChange }) => (
+        {({ handleSubmit, handleChange, errors }) => (
           <>
             <AppTextInput
               autoCapitalize="none" //will not capitalize text
@@ -30,6 +38,7 @@ const LoginScreen = () => {
               //   onChangeText={(value) => setEmail(value)}
               onChangeText={handleChange("email")}
             />
+            <AppText style={{ color: "red" }}>{errors.email}</AppText>
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -41,6 +50,7 @@ const LoginScreen = () => {
               //   onChangeText={(value) => setPassword(value)}
               onChangeText={handleChange("password")}
             />
+            <AppText style={{ color: "red" }}>{errors.password}</AppText>
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
