@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     padding: 12,
     flexDirection: "row",
     width: "100%",
+    marginBottom: 10,
   },
   textInput: defaultStyles.text,
 });
