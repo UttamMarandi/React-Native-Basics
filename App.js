@@ -18,6 +18,7 @@ import {
   StatusBar,
   Dimensions,
   TextInput,
+  Switch,
 } from "react-native";
 import {
   useDimensions,
@@ -37,12 +38,12 @@ import ListingScreens from "./src/screens/ListingScreens";
 import AccountScreen from "./src/screens/AccountScreen";
 import { borderBottomColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 import AppTextInput from "./src/components/AppTextInput";
+import SwitchComponent from "./src/components/SwitchComponent";
 
 export default function App() {
-  const [firstName, setFirstName] = useState("");
   return (
     <Screen>
-      <AppTextInput icon="email" color="tomato" placeholder="UserName" />
+      <SwitchComponent />
     </Screen>
   );
 }
