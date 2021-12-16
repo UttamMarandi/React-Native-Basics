@@ -7,6 +7,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 import Screen from "./Screen";
+import ErrorMessage from "../components/ErrorMessage";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required().label("Email"), //we require label b.c when we show errors we want to display "Email" and not email
@@ -38,7 +39,7 @@ const LoginScreen = () => {
               //   onChangeText={(value) => setEmail(value)}
               onChangeText={handleChange("email")}
             />
-            <AppText style={{ color: "red" }}>{errors.email}</AppText>
+            <ErrorMessage error={errors.email} />
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -50,7 +51,7 @@ const LoginScreen = () => {
               //   onChangeText={(value) => setPassword(value)}
               onChangeText={handleChange("password")}
             />
-            <AppText style={{ color: "red" }}>{errors.password}</AppText>
+            <ErrorMessage error={errors.password} />
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
