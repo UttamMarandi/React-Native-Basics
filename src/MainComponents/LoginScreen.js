@@ -8,6 +8,7 @@ import * as Yup from "yup";
 
 import Screen from "./Screen";
 import ErrorMessage from "../components/ErrorMessage";
+import AppFormField from "./AppFormField";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required().label("Email"), //we require label b.c when we show errors we want to display "Email" and not email
@@ -28,7 +29,7 @@ const LoginScreen = () => {
       >
         {({ handleSubmit, handleChange, errors, setFieldTouched, touched }) => (
           <>
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none" //will not capitalize text
               autoCorrect={false} //not correct automatically
               icon="email"
@@ -37,11 +38,10 @@ const LoginScreen = () => {
               color="red"
               textContentType="emailAddress" //only works on ios only
               //   onChangeText={(value) => setEmail(value)}
-              onChangeText={handleChange("email")}
-              onBlur={() => setFieldTouched("email")} //this let's us know which input field is currently being edited
+              name="email"
             />
-            <ErrorMessage error={errors.email} visible={touched.email} />
-            <AppTextInput
+
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="lock"
@@ -50,10 +50,9 @@ const LoginScreen = () => {
               secureTextEntry={true}
               textContentType="password"
               //   onChangeText={(value) => setPassword(value)}
-              onChangeText={handleChange("password")}
-              onBlur={() => setFieldTouched("password")}
+              name="password"
             />
-            <ErrorMessage error={errors.password} visible={touched.password} />
+
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
