@@ -26,7 +26,7 @@ const LoginScreen = () => {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleSubmit, handleChange, errors }) => (
+        {({ handleSubmit, handleChange, errors, setFieldTouched, touched }) => (
           <>
             <AppTextInput
               autoCapitalize="none" //will not capitalize text
@@ -38,8 +38,9 @@ const LoginScreen = () => {
               textContentType="emailAddress" //only works on ios only
               //   onChangeText={(value) => setEmail(value)}
               onChangeText={handleChange("email")}
+              onBlur={() => setFieldTouched("email")} //this let's us know which input field is currently being edited
             />
-            <ErrorMessage error={errors.email} />
+            <ErrorMessage error={errors.email} visible={touched.email} />
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -50,8 +51,9 @@ const LoginScreen = () => {
               textContentType="password"
               //   onChangeText={(value) => setPassword(value)}
               onChangeText={handleChange("password")}
+              onBlur={() => setFieldTouched("password")}
             />
-            <ErrorMessage error={errors.password} />
+            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
